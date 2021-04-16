@@ -2,8 +2,8 @@ set -e
 
 cd $(dirname "$0")
 
-if [ -z "$DOCKER_IMAGE_NAME" ]; then
-    DOCKER_IMAGE_NAME=docker-linux-sdl2
+if [ -z "$IMAGE_NAME" ]; then
+    IMAGE_NAME=docker-linux-sdl2
 fi
 
-docker build --pull --tag "$DOCKER_IMAGE_NAME" .
+docker build . --file Dockerfile --tag $IMAGE_NAME
